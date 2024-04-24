@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+    <style>
+        body{
+            background: rgb(134, 134, 250);
+        }
+        div{
+            background-color: white;
+            margin: auto;
+            padding: 10px;
+            width: 250px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div>
+            <h1>Calculando Tabuada</h1>
+            <label for="Numero">Num: </label>
+            <input type="number" id="num"><br><br>
+            <input type="button" value="Calcular" onclick="tabuada()">
+        </div>
+        <div id="res">
+            Calculando Tabuada...
+        </div>
+    </section>
+    <script>
+        function tabuada(){
+            let num = document.getElementById('num')
+            let res = document.getElementById('res')
+            
+            if(num.value.length == 0){
+                window.alert('[ERRO] DIGITE UM NÚMERO')
+            }else{
+                res.innerHTML = 'Calculando ... <br>'
+                let n = Number(num.value)
+                let cont = 1
+
+                while(cont<=10) {
+                    res.innerHTML += `${n} x ${cont} = ${n*cont} <br>`
+                    cont += 1
+                }
+            }
+        }
+    </script>
+</body>
+</html>

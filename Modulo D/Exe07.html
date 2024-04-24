@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detector</title>
+    <style>
+        body{
+            background: rgb(119, 119, 250);
+            text-align: center;
+        }
+        section{
+            background: white;
+            margin: auto;
+            width: 300px;
+            height: 300px;
+            padding: 10px;
+        }
+        section > input#botao:hover{
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h1>Digite sua data de nascimento abaixo</h1>
+        <input type="number" name="numero" id="num" min="0">
+        <p> <strong>Sexo:</strong>
+        <input type="radio" name="sex" id="mas" checked>
+        <label for="mas">Masculino</label>
+        <input type="radio" name="sex" id="fem">
+        <label for="fem">Feminina</label>
+        </p>
+        <p id="res">Identificando... </p>
+        <br>
+        <input id="botao" type="button" value="Verificar sua idade" onclick="clicar()">
+    </section>
+    
+    <script>
+        function clicar(){
+            var atual = new Date()
+            var data_atual = atual.getFullYear()
+            var res = document.getElementById("res")
+            var num = document.getElementById('num') 
+            var nascimento = Number(num. value)
+            var idade = data_atual - nascimento
+            var sexo = document.getElementsByName('sex')
+            var genero = ''
+            if(sexo[0].checked){
+                genero = 'Homem'
+                if (idade < 18){
+                    // Menor de idade
+                    res.innerHTML = (`Idade: ${idade} | Sexo: ${genero} | Grupo: Menor de Idade`)
+                }
+                else if(idade > 18 && idade < 65){
+                    // adulto
+                    res.innerHTML = (`Idade: ${idade} | Sexo: ${genero} | Grupo: Adulto`)
+                }
+                else if(idade >= 65){
+                    //idoso
+                    res.innerHTML = (`Idade: ${idade} | Sexo: ${genero} | Grupo: Idoso`)
+                }
+            }
+            else if (sexo[1].checked){
+                genero = 'Feminino'
+                if (idade < 18){
+                    // Menor de idade
+                    res.innerHTML = (`Idade: ${idade} | Sexo: ${genero} | Grupo: Menor de Idade`)
+                }
+                else if(idade > 18 && idade < 65){
+                    // adulto
+                    res.innerHTML = (`Idade: ${idade} | Sexo: ${genero} | Grupo: Adulto`)
+                }
+                else if(idade >= 65){
+                    //idoso
+                    res.innerHTML = (`Idade: ${idade} | Sexo: ${genero} | Grupo: Idoso`)
+                }
+            }
+        }        
+    </script>
+</body>
+</html>

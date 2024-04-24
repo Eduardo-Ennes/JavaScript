@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos DOM</title>
+    <style>
+        div#area{
+            background-color: rgb(32, 32, 182);
+            font: normal 20pt arial;
+            color: white;
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;  
+        }
+    </style>
+</head>
+<body>
+    <div id="area" onclick="clicar()" onmouseenter="entrou()" onmouseout="saiu()">
+        Interaja...
+    </div>
+    <script>
+        var p = window.document.querySelector('div#area')
+//         p.addEventListener('click', clicar)
+//        p.addEventListener('mouseenter', entrou)
+//        p.addEventListener('mouseout', saiu) 
+// Forma de usar no J.S sem populir muito o HTML
+
+        function clicar(){
+            p.innerText = 'Entrou!'
+            p.style.background = 'red'
+        }
+        function entrou(){
+            p.innerText = 'Zé da manga!'
+            p.style.background = 'green'
+        }
+        function saiu(){
+            p.innerText = 'Saiu!'
+            p.style.background = 'orange'
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+    <style>
+        body{
+            background: rgb(137, 137, 248);
+            padding-top: 60px;
+        }
+        section{
+            background: white;
+            margin: auto;
+            width: 300px;
+            padding: 10px;
+            text-align: center;
+            border: 1px solid black;
+            border-radius: 10px;
+        }
+        div{
+            font-family: monospace;
+            font-weight: bolder;
+            font-size: 16px;
+            text-align: center;
+            padding-top: 20px;
+        }
+        section > div > input#botao:hover{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h1>Contador</h1>
+        <div>
+            <label for="inicio">INÍ:</label>
+            <input type="number" id="inicio"> <br><br>
+            <label for="condicao">FIM:</label>
+            <input type="number" id="fim"> <br><br>
+            <label for="expressao">EXP:</label>
+            <input type="number" id="passo"><br><br>
+            <input type="button" value="Verificar" id="botao" onclick="clicar()">
+        </div>
+        <div id="res">
+            Calculando Resultado...
+        </div>
+    </section>
+    <script>
+        function clicar(){
+            let ini = document.getElementById('inicio')
+            let fim = document.getElementById('fim')
+            let exp = document.getElementById('passo')
+            let res = document.getElementById('res')
+
+            if (ini.value.length == 0 || fim.value.length == 0 || exp.value.length == 0){
+                window.alert('[ERRO] PREENCHA TODOS OS REQUISITOS')
+            } else{
+                res.innerHTML = 'Contando: '
+                let i = Number(ini.value)
+                let f = Number(fim.value)
+                let e = Number(exp.value)
+                if (e <= 0){
+                    window.alert('[ERRO] DIGITE UM NÚMERO DIFERENTE DE 0 NO PASSO')
+                    e = 1
+                }
+
+                if (i < f){
+                    for(let c = i; c <= f; c += e){
+                    res.innerHTML += `${c} ->`
+                    
+                }
+                }else{
+                    for(let c = i; c >= f; c -= e)
+                    res.innerHTML += `${c} ->`
+                    
+                }   
+                res.innerHTML += 'Fim'
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercitando Dom</title>
+    <style>
+        strong{
+            font-size: xx-large;
+        }
+    </style>
+</head>
+<body>
+    <h1>Exercictando Eventos de DOM</h1>
+    <input type="number" id="num1">
+    <input type="number" id="num2">
+    <input type="button" value="Somar" onclick="clicou()">
+    <br>
+    <div id="res"> <strong>...</strong> </div>
+    <script>
+        function clicou(){
+            var n1 = window.document.getElementById('num1')
+            var n2 = window.document.getElementById('num2')
+            var div = window.document.getElementById('res')
+            var numero_1 = parseFloat(n1.value)
+            var numero_2 = Number(n2.value)
+            var soma = numero_1 + numero_2
+            div.innerText = (`Resultado: ${numero_1} + ${numero_2} = ${soma}`)
+        }
+    </script>
+</body>
+</html>
